@@ -29,5 +29,21 @@ const generateDecksCard = () => {
 };
 
 const getRandomCards = () => {
-  generateDecksCard[Math.floor(Math.random() * generateDecksCard.length)];
+  const card =
+    generateDecksCard()[Math.floor(Math.random() * generateDecksCard().length)];
+
+  return card;
+};
+
+const visibleCard = getRandomCards();
+const hiddenCard = getRandomCards();
+
+const getComparateResultGame = () => {
+  if (visibleCard.score === hiddenCard.score) {
+    return 0;
+  } else if (visibleCard.score < hiddenCard.score) {
+    return 1;
+  } else {
+    return -1;
+  }
 };
