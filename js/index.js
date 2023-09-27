@@ -1,6 +1,6 @@
 const suitsCards = ["♠", "♣", "♦ ", "♥"];
 
-const cardValue = [
+const cardValues = [
   "2",
   "3",
   "4",
@@ -16,14 +16,18 @@ const cardValue = [
   "A",
 ];
 
-const getCardsValue = () => {
+const generateDecksCard = () => {
   const cards = [];
+
   suitsCards.forEach((suit) => {
-    cardValue.forEach((card, positionCard) => {
-      cards.push({ cardsValue: card, suit: suit, value: positionCard });
+    cardValues.forEach((card, positionCard) => {
+      cards.push({ cardsValue: card, suit: suit, score: positionCard });
     });
   });
+
   return cards;
 };
 
-console.log(getCardsValue());
+const getRandomCards = () => {
+  generateDecksCard[Math.floor(Math.random() * generateDecksCard.length)];
+};
