@@ -1,3 +1,7 @@
+:root {
+  --main-font-family: "Roboto", sans-serif;
+}
+
 *,
 ::before,
 ::after {
@@ -8,4 +12,39 @@ body,
 h1,
 h2 {
   margin: 0;
+}
+
+header {
+  padding: 30px;
+}
+
+.main-content {
+  font-family: var(--main-font-family);
+  padding: 40px 40px;
+  text-align: center;
+  background-color: rgba(255, 255, 128, 0.5);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.cards {
+  display: grid;
+  height: 400px;
+  width: 300px;
+  border-radius: 30px;
+  font-size: 50px;
+  align-items: center;
+  text-align: center;
+  border: solid 10px;
+  border-radius: 20px;
+}
+
+.center {
+  grid-area: 2/2;
+}
+
+.botton {
+  grid-area: 3/3;
 }
