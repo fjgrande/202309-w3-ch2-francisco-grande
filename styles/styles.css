@@ -1,0 +1,11 @@
+*,
+::before,
+::after {
+  box-sizing: content-box;
+}
+
+body,
+h1,
+h2 {
+  margin: 0;
+}
