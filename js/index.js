@@ -64,10 +64,15 @@ const cardVisibleSuit = document.querySelectorAll(".card-visible-suit");
 const cardVisibleFigure = document.querySelector(".card-visible.card-figure");
 
 const buttonStart = document.querySelector(".button-start");
+const elementHiddenCards = document.querySelector(".hidden-cards");
+const hiddenButtonGreater = document.querySelector(".button-greater");
+const hiddenButtonSmaller = document.querySelector(".button-smaller");
+const hiddenInterrogant = document.querySelector(".interrogante");
 
 buttonGreater.addEventListener("click", () => {
   cardUserSuit.forEach((suit) => {
     suit.textContent = `${hiddenCard.suit}`;
+    hiddenInterrogant.classList.add("button-greater");
   });
 
   cardUserFigure.textContent = `${hiddenCard.cardsValue}`;
@@ -81,12 +86,18 @@ buttonStart.addEventListener("click", () => {
     suit.textContent = `${visibleCard.suit}`;
   });
   cardVisibleFigure.textContent = `${visibleCard.cardsValue}`;
+  elementHiddenCards.classList.remove("hidden-cards");
+  hiddenButtonGreater.classList.remove("button-greater");
+  hiddenButtonSmaller.classList.remove("button-smaller");
+
+  buttonStart.classList.add("hidden-cards");
 });
 
 buttonSmaller.addEventListener("click", () => {
   cardUserSuit.forEach((suit) => {
     suit.textContent = `${hiddenCard.suit}`;
   });
+  hiddenInterrogant.classList.add("button-greater");
   cardUserFigure.textContent = `${hiddenCard.cardsValue}`;
   document.querySelector(".feedback").textContent = getCheckResultGame(
     "Smaller",
