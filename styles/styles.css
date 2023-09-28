@@ -70,5 +70,10 @@ span {
   padding: 40px;
 }
 
+.container-feedback {
+  height: 30px;
+  padding: 10px;
+}
+
 .hidden {
 }

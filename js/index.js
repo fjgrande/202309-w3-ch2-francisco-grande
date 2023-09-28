@@ -34,6 +34,22 @@ const getRandomCards = () => {
 
   return card;
 };
+const getComparateResultGame = (visibleCard, hiddenCard) => {
+  if (visibleCard.score === hiddenCard.score) {
+    return "Equal";
+  } else if (visibleCard.score > hiddenCard.score) {
+    return "Smaller";
+  } else {
+    return "Greater";
+  }
+};
+
+const getCheckResultGame = (userInput, computerInput) => {
+  if (userInput === computerInput) return `${computerInput}😃`;
+  else {
+    return `${computerInput}😥`;
+  }
+};
 
 const visibleCard = getRandomCards();
 const hiddenCard = getRandomCards();
@@ -44,19 +60,22 @@ const cardUserFigure = document.querySelector(".card-user.card-figure");
 const buttonGreater = document.querySelector(".button-greater");
 const buttonSmaller = document.querySelector(".button-smaller");
 
+const cardVisibleSuit = document.querySelectorAll(".card-visible-suit");
+const cardVisibleFigure = document.querySelector(".card-visible.card-figure");
+
+const buttonStart = document.querySelector(".button-start");
+
 buttonGreater.addEventListener("click", () => {
   cardUserSuit.forEach((suit) => {
     suit.textContent = `${hiddenCard.suit}`;
   });
 
   cardUserFigure.textContent = `${hiddenCard.cardsValue}`;
+  document.querySelector(".feedback").textContent = getCheckResultGame(
+    "Greater",
+    getComparateResultGame(visibleCard, hiddenCard)
+  );
 });
-
-const cardVisibleSuit = document.querySelectorAll(".card-visible-suit");
-const cardVisibleFigure = document.querySelector(".card-visible.card-figure");
-
-const buttonStart = document.querySelector(".button-start");
-
 buttonStart.addEventListener("click", () => {
   cardVisibleSuit.forEach((suit) => {
     suit.textContent = `${visibleCard.suit}`;
@@ -69,24 +88,8 @@ buttonSmaller.addEventListener("click", () => {
     suit.textContent = `${hiddenCard.suit}`;
   });
   cardUserFigure.textContent = `${hiddenCard.cardsValue}`;
+  document.querySelector(".feedback").textContent = getCheckResultGame(
+    "Smaller",
+    getComparateResultGame(visibleCard, hiddenCard)
+  );
 });
-
-const getComparateResultGame = () => {
-  if (visibleCard.score > hiddenCard.score) {
-    return -1;
-  } else if (visibleCard.score < hiddenCard.score) {
-    return 1;
-  } else {
-    return 0;
-  }
-};
-
-const getCheckResultGame = () => {
-  if (getComparateResultGame() === 1) {
-    console.log("Tu carta es mayor");
-  } else if (getComparateResultGame() === -1) {
-    console.log("tu carta es menor");
-  } else {
-    console.log("tu carta es igual");
-  }
-};
