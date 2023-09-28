@@ -75,5 +75,19 @@ span {
   padding: 10px;
 }
 
-.hidden {
+.hidden-cards {
+  display: none;
+}
+
+.button-greater {
+  visibility: hidden;
+}
+
+.button-smaller {
+  visibility: hidden;
+}
+
+.interrogante {
+  grid-area: 2/2;
+  font-size: 200px;
 }
