@@ -7,7 +7,11 @@
 *,
 ::before,
 ::after {
-  box-sizing: content-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--main-font-family);
 }
 
 body,
@@ -26,16 +30,20 @@ button {
   background-color: var(--button-background-color);
   font-family: var(--main-font-family);
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
+button:hover {
+  background-color: aqua;
+}
 span {
   font-family: var(--main-font-family);
 }
 .main-content {
-  font-family: var(--main-font-family);
   padding: 40px 40px;
   text-align: center;
   background-color: rgba(255, 255, 128, 0.5);
+  height: 100vh;
 }
 
 .cards-container {
@@ -46,10 +54,8 @@ span {
   display: grid;
   height: 400px;
   width: 300px;
-  border-radius: 30px;
   font-size: 50px;
   align-items: center;
-  text-align: center;
   border: solid 10px;
   border-radius: 20px;
 }
@@ -67,12 +73,11 @@ span {
 }
 
 .container-button {
-  padding: 40px;
 }
 
 .container-feedback {
   height: 30px;
-  padding: 10px;
+  padding: 30px;
 }
 
 .hidden-cards {
@@ -87,7 +92,6 @@ span {
   visibility: hidden;
 }
 
-.interrogante {
+.interrogant {
   grid-area: 2/2;
-  font-size: 200px;
 }

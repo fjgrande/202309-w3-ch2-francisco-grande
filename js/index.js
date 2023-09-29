@@ -45,9 +45,9 @@ const getComparateResultGame = (visibleCard, hiddenCard) => {
 };
 
 const getCheckResultGame = (userInput, computerInput) => {
-  if (userInput === computerInput) return `${computerInput}😃`;
+  if (userInput === computerInput) return `The card it's ${computerInput}😃`;
   else {
-    return `${computerInput}😥`;
+    return `The card it's ${computerInput}😥`;
   }
 };
 
@@ -67,7 +67,7 @@ const buttonStart = document.querySelector(".button-start");
 const elementHiddenCards = document.querySelector(".hidden-cards");
 const hiddenButtonGreater = document.querySelector(".button-greater");
 const hiddenButtonSmaller = document.querySelector(".button-smaller");
-const hiddenInterrogant = document.querySelector(".interrogante");
+const hiddenInterrogant = document.querySelector(".interrogant");
 
 buttonGreater.addEventListener("click", () => {
   cardUserSuit.forEach((suit) => {
@@ -80,6 +80,8 @@ buttonGreater.addEventListener("click", () => {
     "Greater",
     getComparateResultGame(visibleCard, hiddenCard)
   );
+  hiddenButtonGreater.classList.add("button-greater");
+  hiddenButtonSmaller.classList.add("button-smaller");
 });
 buttonStart.addEventListener("click", () => {
   cardVisibleSuit.forEach((suit) => {
@@ -103,4 +105,6 @@ buttonSmaller.addEventListener("click", () => {
     "Smaller",
     getComparateResultGame(visibleCard, hiddenCard)
   );
+  hiddenButtonGreater.classList.add("button-greater");
+  hiddenButtonSmaller.classList.add("button-smaller");
 });
