@@ -34,6 +34,10 @@ const getRandomCards = () => {
 
   return card;
 };
+
+const visibleCard = getRandomCards();
+const hiddenCard = getRandomCards();
+
 const getComparateResultGame = (visibleCard, hiddenCard) => {
   if (visibleCard.score === hiddenCard.score) {
     return "Equal";
@@ -51,18 +55,12 @@ const getCheckResultGame = (userInput, computerInput) => {
   }
 };
 
-const visibleCard = getRandomCards();
-const hiddenCard = getRandomCards();
-
 const cardUserSuit = document.querySelectorAll(".card-user-suit");
 const cardUserFigure = document.querySelector(".card-user.card-figure");
-
 const buttonGreater = document.querySelector(".button-greater");
 const buttonSmaller = document.querySelector(".button-smaller");
-
 const cardVisibleSuit = document.querySelectorAll(".card-visible-suit");
 const cardVisibleFigure = document.querySelector(".card-visible.card-figure");
-
 const buttonStart = document.querySelector(".button-start");
 const elementHiddenCards = document.querySelector(".hidden-cards");
 const hiddenButtonGreater = document.querySelector(".button-greater");
@@ -83,6 +81,7 @@ buttonGreater.addEventListener("click", () => {
   hiddenButtonGreater.classList.add("button-greater");
   hiddenButtonSmaller.classList.add("button-smaller");
 });
+
 buttonStart.addEventListener("click", () => {
   cardVisibleSuit.forEach((suit) => {
     suit.textContent = `${visibleCard.suit}`;
@@ -91,7 +90,6 @@ buttonStart.addEventListener("click", () => {
   elementHiddenCards.classList.remove("hidden-cards");
   hiddenButtonGreater.classList.remove("button-greater");
   hiddenButtonSmaller.classList.remove("button-smaller");
-
   buttonStart.classList.add("hidden-cards");
 });
 
